@@ -40,6 +40,7 @@ The routing is done from url.py file in the app.
 examples of url are, facebook.com, facebook.com/messages
 N/b: this are two different Urls.
 
+
 ##Importing path in urls
 path helps us import multiple urls in a list.
 the list is "urlpattern" and it contains all the url in 
@@ -84,5 +85,5 @@ app on the main project.
     path('', include('firstDjangoApp.urls'))
  you can then run the server from cmd and the url will be 
  rendered and the default django theme would be gone.
- 
 
+###COMMITS AND PUSH SUCCESSFUL FOR LESSON 1(URL Routing)
