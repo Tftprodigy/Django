@@ -1,0 +1,33 @@
+-created folder and git repo
+-installed django on local machine and Dir
+    command: pip install django
+
+-install virtual environment in the project Dir
+    Type- virtualenvwrapper
+    command: install virtualenvwrapper-win
+
+-create a virtual environment after installing
+    command: mkvirtualenv (Env name)
+        i.e: mkvirtualenv myApp
+
+-if suscessful env name should be (myApp) at the
+ beginning of the Dir Path and its activated.
+
+-install django into the new virtual environment
+     command: pip install django
+    
+- django successfully installed on virtual environment.
+
+##creating Django project
+- to create a new django app:
+    command: django-admin startproject (projectName)
+        i.e: django-admin startproject myProject
+        
+##Activating and Deactivating virtual environment
+keywords: workon, deactivate.
+-Workon: is used to activate the virtual env
+    i.e: workon (virtual env name)
+         workon myApp
+
+-deactivate: is used to exit the vir env
+        i.e: deactivate

@@ -1,0 +1,88 @@
+-DIfference between Django projects and django app.
+
+Django app: are subsets of main project.
+    i.e: lets take instagram for example, instagram can
+    the main project, while other sections such as DM can
+    be a django app, other section can include, feeds,
+    profile,Reels, story, etc. This app have a particular
+    funtion they do and serve.
+N/B: you ca also have one project and one app but the app
+     contain multiple features.
+
+
+##CREATING Django app
+-Make sure you in the vir env and also the project Dir.
+-create an app in the root dir of the project
+N/b: the manage.py file is responsible for creating a
+    Django app.
+#Create app using manage.py
+command: python manage.py startapp (appName)
+    i.e: python manage.py startapp firstDjangoApp
+
+#-FIles Created in the App AFter its APp creation
+1. init.py: mostly used for migration for the models.
+2. admin.py: django has a built in interface that let you
+    maintain your site, view all databases and everything
+    relating to the site. admin.py is where we register
+    databases etc.
+3. apps.py: 
+4. models.py: this is the file where we create all our
+    databases.
+5. tests.py: is used in some cases but not frequently
+    used.
+6. views.py: is where the main things happen.
+
+
+### Url Mapping or Url Routing
+This is the configuration of urls that will be used in that 
+particular Django app.
+The routing is done from url.py file in the app.
+examples of url are, facebook.com, facebook.com/messages
+N/b: this are two different Urls.
+
+##Importing path in urls
+path helps us import multiple urls in a list.
+the list is "urlpattern" and it contains all the url in 
+the project.
+-command: from django.urls import path
+
+-the list called urlpattern then contain path in which
+ every url si specified in.
+ Path('', views.index, name='index')
+
+-when the first '' is empty in the path, its spefifys the 
+root url.
+lets say we want our user to access the download page on our
+website, we can specify in the path that /download is another url.
+i.e
+    path('/download', views.index, name='index')
+
+ -views.index: this is what happens when a user comes to the 
+    specified url.
+    for views.index to be used, it must be imported.
+ -name='index': is the id assign to the url.
+
+
+### Running Django project 
+    running a django app occurs with the help of the
+manage.py file
+    command: 
+            python manage.py runserver
+
+N/B - After the app which is (firstDjangoAPp) which
+also is the subset of the of the main Django project called
+my project; after it runs we need to configure it to look
+ for our own urls that we ve configured in the app:
+ --summary is, we configure project to look for app urls.
+
+#- we then head to myProject > urls
+and import include from django.urls
+
+which will allow us to implement simililar urls used in an
+app on the main project.
+ A new Path will be then cretaed in the urlpattern
+    path('', include('firstDjangoApp.urls'))
+ you can then run the server from cmd and the url will be 
+ rendered and the default django theme would be gone.
+ 
+
