@@ -1,0 +1,39 @@
+### Making Django Locate files like html.
+- in most cases we cant always type our markup language
+  from scractch to get http response, we need to make Django
+  located these files.
+
+#-Head to root dir, (root dir in a Django project is the
+ folder originally containing the manage.py file)
+ create new folder called templates, which will contain
+ our templates files.
+
+ #Configure DJANGO TO LOCATE TEMPLATES And render HTml files in a 
+ #Django url.
+ in order to get Djangoto located this new template folder
+  we head to MYPROJECT > SETTINGS.py
+  in the setting.py, we locate template list and dir list
+  located in templates list.
+  command:
+
+  'DIRS': [BASE_DIR, 'templates'],
+  
+  which is basically saying "go to the base dir, or root
+  dir and locate a folder called template.
+  
+  we can then start working with templates files.
+
+ NOw, in our views.py ,we don't want to return httpresponse
+ anymore since we are working with templates files.
+ what we want to do is render those files.
+
+    so in the views our function will return a renter 
+    instead of httpresponse
+        command:
+    def index(request):
+     return render(request, 'index.html')
+
+   where index.html is the rendered file name.
+   this file should be then rendered on the server.
+   N/B: it works ;)
+
