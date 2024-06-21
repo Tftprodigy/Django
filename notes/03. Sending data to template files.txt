@@ -1,0 +1,58 @@
+static: the same
+dynamic: changes to a particular functions or
+    whatever it is given.
+##SENDING DYNAMIC DATA TO TEMPLATE FILE.
+  lets, illustrate with facebook, when differnet users log in
+  to the account, you see hello john, hello jim, hello kim,
+  etc. the var holding users names can be reffered to as
+  dynamic data because it changes with each user & display
+  different feeds for different user.
+
+- when adding dynamic data to an html file we head over to views.py
+  to dynamically add it.
+  we can create a var & call it name.
+  we can then return it rentered in the request function.
+
+    def index(request):
+    # return HttpResponse('<h1>Hey, Welcome To Homepage.</h1>')
+   username = 'Patrick'
+   return render(request, 'index.html', {'username': username})
+  
+  we can then call this var in our html file using {{}}
+
+    <h1>Hello {{username}}, Welcome Back</h1>
+
+thats the basic of sending dynamic data using django.
+
+now say we want it to be more formatted and we have different
+data we want to pass and this data are of tthe same object.
+i.e name = Patrick, age 25, Dob = 1999, nation = USA, etc
+it is not advisable to start passing all this one after 
+the other i.e 
+     username = 'Patrick'
+     age = 23
+     nation = usa
+   return render(request, 'index.html', {'username': username}
+   {'age': age}, {'nation': USA})
+
+it is best to create a dictionary containing user info,
+in this case which is patrick.
+lets call the dictionary context
+
+    context = {
+         'name': 'Patrick',
+          'age': 25,
+           'nation': 'USA',
+        }
+    return render(request, 'index.html', context)
+
+which can now be accessed in the html file using {{}},
+i.e {{age}}, {{nation}}, {{name}}
+ i.e in the html we can have.
+ 
+      <h1>Hello again {{name}}, from your backend data i
+        can see you are {{age}} and from {{nation}}
+    </h1>
+
+
+  
